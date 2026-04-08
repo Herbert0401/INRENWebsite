@@ -305,7 +305,6 @@
         const imageList = Array.isArray(product.images) && product.images.length > 0
           ? product.images
           : [product.image].filter(Boolean);
-        const resolveAsset = window.inrenResolveAssetUrl || ((value) => value);
 
         let activeIndex = 0;
         let pointerStartX = 0;
@@ -336,9 +335,9 @@
 
             const image = document.createElement("img");
             image.className = "carousel-image";
-            image.dataset.src = resolveAsset(src);
+            image.dataset.src = src;
             if (index === 0) {
-              image.src = resolveAsset(src);
+              image.src = src;
               image.setAttribute("fetchpriority", "high");
             }
             image.loading = "lazy";
