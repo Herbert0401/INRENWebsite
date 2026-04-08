@@ -173,9 +173,18 @@
         const seasonKey = document.body.dataset.season || '2';
         const productsBySeason = (window.INREN_PRODUCTS && window.INREN_PRODUCTS.bySeason) || {};
         const seasonProducts = productsBySeason[seasonKey] || [];
+        const resolveAsset = window.inrenResolveAssetUrl || ((value) => value);
 
         boxes.forEach((box, index) => {
           const card = cards[index];
+          const image = box.querySelector('img');
+
+          if (image) {
+            const source = image.getAttribute('src') || image.src;
+            image.src = resolveAsset(source);
+            image.loading = 'lazy';
+            image.decoding = 'async';
+          }
 
           if (card) {
             let priceNode = card.querySelector('.season1-price');
