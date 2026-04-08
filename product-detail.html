@@ -335,7 +335,13 @@
 
             const image = document.createElement("img");
             image.className = "carousel-image";
-            image.src = src;
+            image.dataset.src = src;
+            if (index === 0) {
+              image.src = src;
+              image.setAttribute("fetchpriority", "high");
+            }
+            image.loading = "lazy";
+            image.decoding = "async";
             image.alt = `${product.name} - ${index + 1}`;
             image.draggable = false;
             slide.appendChild(image);
@@ -371,6 +377,20 @@
 
         const setActive = (nextIndex) => {
           activeIndex = clampIndex(nextIndex);
+
+          const indicesToMaterialize = [
+            activeIndex,
+            clampIndex(activeIndex - 1),
+            clampIndex(activeIndex + 1),
+          ];
+
+          indicesToMaterialize.forEach((targetIndex) => {
+            const slideImage = carouselTrack.children[targetIndex]?.querySelector("img");
+            if (slideImage && !slideImage.getAttribute("src") && slideImage.dataset.src) {
+              slideImage.setAttribute("src", slideImage.dataset.src);
+            }
+          });
+
           updateUI();
         };
 
