@@ -1,6 +1,6 @@
 (function () {
-  // Set this to your public R2 domain base, e.g. https://pub-xxxx.r2.dev/images
-  window.INREN_ASSET_BASE = window.INREN_ASSET_BASE || "";
+  // Public R2 domain base for all image assets.
+  window.INREN_ASSET_BASE = window.INREN_ASSET_BASE || "https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev/images";
 
   const ABSOLUTE_RE = /^(?:[a-z]+:)?\/\//i;
   const SKIP_RE = /^(?:data:|blob:|mailto:|tel:|javascript:|#)/i;
