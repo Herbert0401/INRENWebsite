@@ -10,6 +10,11 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev" crossorigin />
+    <link rel="preload" as="image" href="https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev/images/visuals/01/IN%20REN%20CAMPAIGN/1011x.jpg" />
+    <link rel="preload" as="image" href="https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev/images/visuals/01/IN%20REN%20CAMPAIGN/1274x.jpg" />
+    <link rel="preload" as="image" href="https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev/images/visuals/01/IN%20REN%20CAMPAIGN/1340x.jpg" />
+    <link rel="preload" as="image" href="https://pub-c58cbb9b5fbc44bb8be16a02a06946f2.r2.dev/images/visuals/01/IN%20REN%20CAMPAIGN/0760x.jpg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -44,6 +49,7 @@
         padding: 2rem 1.25rem;
         max-width: 1200px;
         margin: 0 auto;
+        contain: content;
       }
 
       .gallery-item {
@@ -67,6 +73,7 @@
         border-radius: 10px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         background: #0d120f;
+        position: relative;
       }
 
       .gallery-image img {
@@ -74,6 +81,11 @@
         height: 100%;
         display: block;
         object-fit: cover;
+      }
+
+      .campaign-gallery + .campaign-gallery {
+        content-visibility: auto;
+        contain-intrinsic-size: 1200px 1500px;
       }
 
       .gallery-image:hover {
@@ -178,61 +190,61 @@
 
       <section class="campaign-gallery">
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/1011x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/1011x.jpg" alt="Campaign image 1" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/1274x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/1274x.jpg" alt="Campaign image 2" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/1340x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/1340x.jpg" alt="Campaign image 3" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/0760x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/0760x.jpg" alt="Campaign image 4" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/0783.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/0783.jpg" alt="Campaign image 5" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/0836x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/0836x.jpg" alt="Campaign image 6" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/0864x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/0864x.jpg" alt="Campaign image 7" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/01/IN REN CAMPAIGN/1269x.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/01/IN REN CAMPAIGN/1269x.jpg" alt="Campaign image 8" loading="eager" fetchpriority="high" decoding="async"></div>
         </div>
       </section>
 
       <section class="campaign-gallery">
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/7月/CP/LOOK2/3A9A7864.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/7月/CP/LOOK2/3A9A7864.jpg" alt="Campaign image 9" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/7月/CP/LOOK2/3A9A7931.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/7月/CP/LOOK2/3A9A7931.jpg" alt="Campaign image 10" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/7月/CP/LOOK1/inren07191336.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/7月/CP/LOOK1/inren07191336.jpg" alt="Campaign image 11" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/7月/CP/LOOK1/inren07191239.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/7月/CP/LOOK1/inren07191239.jpg" alt="Campaign image 12" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/7月/CP/LOOK1/inren07191218.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/7月/CP/LOOK1/inren07191218.jpg" alt="Campaign image 13" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/5月/CP look2/238A7598.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/5月/CP look2/238A7598.jpg" alt="Campaign image 14" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/5月/CP look2/238A7443.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/5月/CP look2/238A7443.jpg" alt="Campaign image 15" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/5月/CP look1/238A7214.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/5月/CP look1/238A7214.jpg" alt="Campaign image 16" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/3月/238A96182.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/3月/238A96182.jpg" alt="Campaign image 17" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
         <div class="gallery-item">
-          <div class="gallery-image" style="background-image: url('images/visuals/03/3月/CP最终修图/LOOK1/238A9411.jpg');"></div>
+          <div class="gallery-image"><img src="images/visuals/03/3月/CP最终修图/LOOK1/238A9411.jpg" alt="Campaign image 18" loading="lazy" fetchpriority="low" decoding="async"></div>
         </div>
       </section>
     </main>
@@ -251,7 +263,6 @@
     <script src="asset-base.js"></script>
     <script src="script.js"></script>
     <script>
-      // 动态调整图片高度
       document.addEventListener('DOMContentLoaded', function() {
         const galleryImages = document.querySelectorAll('.gallery-image');
         const modal = document.getElementById('imageModal');
@@ -259,20 +270,12 @@
         const resolveAsset = window.inrenResolveAssetUrl || ((value) => value);
 
         galleryImages.forEach(img => {
-          const backgroundImage = img.style.backgroundImage;
-          const imageUrl = backgroundImage.replace(/url\(['"]?([^'")]+)['"]?\)/, '$1');
+          const thumbnail = img.querySelector('img');
+          const imageUrl = thumbnail?.getAttribute('src') || thumbnail?.src || '';
+          if (thumbnail) {
+            thumbnail.src = resolveAsset(imageUrl);
+          }
 
-          img.style.backgroundImage = 'none';
-
-          const thumbnail = document.createElement('img');
-          thumbnail.alt = '';
-          thumbnail.loading = 'lazy';
-          thumbnail.decoding = 'async';
-          thumbnail.fetchPriority = 'low';
-          thumbnail.src = resolveAsset(imageUrl);
-          img.appendChild(thumbnail);
-
-          // 点击放大图片
           img.addEventListener('click', function() {
             modalImage.src = resolveAsset(imageUrl);
             modal.classList.add('active');
@@ -280,13 +283,11 @@
           });
         });
 
-        // 点击任意位置关闭
         modal.addEventListener('click', function(e) {
           modal.classList.remove('active');
           document.body.style.overflow = 'auto';
         });
 
-        // 按 ESC 键关闭
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape') {
             modal.classList.remove('active');
