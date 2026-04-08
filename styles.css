@@ -34,6 +34,15 @@ body {
   line-height: 1.45;
 }
 
+img.inren-image-fallback {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 166, 82, 0.18), transparent 42%),
+    linear-gradient(145deg, #09150f 0%, #13241b 60%, #0b1812 100%);
+  border: 1px dashed rgba(90, 153, 112, 0.6);
+  padding: 0.75rem;
+  object-fit: contain !important;
+}
+
 .grain {
   position: fixed;
   inset: 0;

@@ -7,6 +7,17 @@
 
   const ABSOLUTE_RE = /^(?:[a-z]+:)?\/\//i;
   const SKIP_RE = /^(?:data:|blob:|mailto:|tel:|javascript:|#)/i;
+  const FALLBACK_DATA_URL = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'>"
+      + "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>"
+      + "<stop offset='0%' stop-color='#07110d'/><stop offset='100%' stop-color='#12241b'/>"
+      + "</linearGradient></defs>"
+      + "<rect width='1200' height='900' fill='url(#g)'/>"
+      + "<rect x='120' y='120' width='960' height='660' fill='none' stroke='#2d5847' stroke-width='6' stroke-dasharray='14 12'/>"
+      + "<text x='50%' y='49%' text-anchor='middle' fill='#5a9970' font-size='42' font-family='Arial, sans-serif' letter-spacing='2'>IMAGE UNAVAILABLE</text>"
+      + "<text x='50%' y='56%' text-anchor='middle' fill='#3c6f56' font-size='24' font-family='Arial, sans-serif'>R2 object missing or temporarily unreachable</text>"
+      + "</svg>"
+  );
 
   const normalizeBase = (base) => String(base || "").trim().replace(/\/+$/, "");
 
@@ -84,6 +95,40 @@
     });
   };
 
+  const bindImageFallback = (img) => {
+    if (!img || img.tagName !== "IMG") {
+      return;
+    }
+
+    if (img.dataset.inrenFallbackBound === "1") {
+      return;
+    }
+
+    const activateFallback = () => {
+      if (img.dataset.inrenFallbackApplied === "1") {
+        return;
+      }
+
+      const current = img.currentSrc || img.getAttribute("src") || "";
+      if (current.indexOf("data:image/svg+xml") === 0) {
+        return;
+      }
+
+      img.dataset.inrenFallbackApplied = "1";
+      img.classList.add("inren-image-fallback");
+      img.setAttribute("data-image-status", "fallback");
+      img.removeAttribute("srcset");
+      img.setAttribute("src", FALLBACK_DATA_URL);
+    };
+
+    img.dataset.inrenFallbackBound = "1";
+    img.addEventListener("error", activateFallback);
+
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) {
+      activateFallback();
+    }
+  };
+
   const applyToElement = (el) => {
     if (!el || el.nodeType !== 1) {
       return;
@@ -96,6 +141,8 @@
         el.setAttribute("src", next);
       }
     }
+
+    bindImageFallback(el);
 
     if (el.hasAttribute("srcset")) {
       const srcset = el.getAttribute("srcset");
