@@ -13,6 +13,15 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
+      .product-detail-page {
+        --detail-main-shift-y: 300px;
+        --detail-card-shift-y: 0px;
+      }
+
+      .product-detail-page main.detail-wrap {
+        padding-top: var(--detail-main-shift-y, 0px);
+      }
+
       .detail-wrap {
         max-width: 1080px;
         margin: 0 auto;
@@ -34,6 +43,7 @@
         border: 1px solid var(--line);
         background: #000;
         padding: 1rem;
+        transform: translateY(calc(var(--detail-card-shift-y, 0px) - var(--detail-main-shift-y, 0px)));
       }
 
       .detail-layout {
@@ -207,7 +217,7 @@
       }
     </style>
   </head>
-  <body class="season-page">
+  <body class="season-page product-detail-page">
     <div class="grain" aria-hidden="true"></div>
     <main class="detail-wrap">
       <article class="detail-card">

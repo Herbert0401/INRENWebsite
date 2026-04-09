@@ -37,6 +37,44 @@
         color: #9C0C0C;
       }
 
+      .campaign-page .site-header {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .campaign-page .header-brand {
+        position: absolute;
+        top: calc(50% + 328px);
+        left: calc(50% + 5px);
+        width: auto;
+        padding: 0;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .campaign-page .brand-button {
+        transition: color 180ms ease;
+      }
+
+      .campaign-page .brand-button:hover {
+        color: inherit;
+        animation: none;
+      }
+
+      .campaign-page .brand-button.campaign-hover-active {
+        color: var(--ink);
+      }
+
+      .campaign-page .header-nav {
+        position: absolute;
+        top: 1rem;
+        left: 1.25rem;
+      }
+
+      .campaign-page main {
+        padding-top: 350px;
+      }
+
       .campaign-gallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -168,12 +206,12 @@
 
     <header class="site-header">
       <div class="header-brand">
-        <a class="brand" href="index.html">IN REN BY REENLAUF</a>
-      </div>
-      <div class="header-nav">
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-        </nav>
+        <a class="brand brand-button" href="index.html" aria-label="IN REN BY REENLAUF">
+          <span class="brand-label">IN REN BY REENLAUF</span>
+          <canvas class="brand-glitch-canvas" aria-hidden="true"></canvas>
+          <span class="brand-label-r" aria-hidden="true">IN REN BY REENLAUF</span>
+          <span class="brand-label-b" aria-hidden="true">IN REN BY REENLAUF</span>
+        </a>
       </div>
     </header>
 

@@ -433,13 +433,13 @@ main,
 }
 
 .brand-button:hover {
-  color: var(--accent);
+  color: var(--ink);
   animation: brand-hover-to-deep-red 260ms ease forwards 1s;
 }
 
 @keyframes brand-hover-to-deep-red {
   from {
-    color: var(--accent);
+    color: var(--ink);
   }
   to {
     color: #9c0c0c;
@@ -679,6 +679,10 @@ h1 {
   padding-bottom: 4.6rem;
 }
 
+.season-page[data-season]:not(.campaign-page) {
+  --season-main-shift-y: 300px;
+}
+
 .season-page .site-header {
   height: auto;
   padding: 1.2rem 0;
@@ -689,6 +693,10 @@ h1 {
 .season-page main,
 .season-page .site-footer {
   z-index: 1;
+}
+
+.season-page[data-season]:not(.campaign-page) main {
+  padding-top: var(--season-main-shift-y);
 }
 
 .season-page .home-btns {
@@ -702,6 +710,18 @@ h1 {
 
 .season-page .shop-dropdown {
   z-index: 1001;
+  pointer-events: none;
+}
+
+.season-page .shop-dropdown .shop-drop-item {
+  pointer-events: none;
+}
+
+.season-page .home-btn-wrap.open .shop-dropdown {
+  pointer-events: auto;
+}
+
+.season-page .home-btn-wrap.open .shop-dropdown .shop-drop-item {
   pointer-events: auto;
 }
 

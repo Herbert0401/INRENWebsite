@@ -275,6 +275,7 @@ const brandButton = document.querySelector('.brand-button');
 if (brandButton) {
   const glitchCanvas = brandButton.querySelector('.brand-glitch-canvas');
   const glitchCtx = glitchCanvas?.getContext('2d');
+  const isCampaignPage = document.body?.classList.contains('campaign-page');
 
   if (glitchCanvas && glitchCtx) {
     const brandGlitch = {
@@ -285,6 +286,7 @@ if (brandButton) {
       radius: 100,
       t: 0,
     };
+    let campaignHoverTimer = null;
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -408,6 +410,13 @@ if (brandButton) {
       updateBrandPointer(event.clientX, event.clientY);
       cancelAnimationFrame(brandGlitch.frame);
       brandGlitch.frame = requestAnimationFrame(drawBrandGlitch);
+
+      if (isCampaignPage) {
+        clearTimeout(campaignHoverTimer);
+        campaignHoverTimer = window.setTimeout(() => {
+          brandButton.classList.add('campaign-hover-active');
+        }, 500);
+      }
     };
 
     const moveBrandGlitch = (event) => {
@@ -420,6 +429,9 @@ if (brandButton) {
     const stopBrandGlitch = () => {
       brandGlitch.active = false;
       brandButton.classList.remove('glitch-active');
+      brandButton.classList.remove('campaign-hover-active');
+      clearTimeout(campaignHoverTimer);
+      campaignHoverTimer = null;
       cancelAnimationFrame(brandGlitch.frame);
       glitchCtx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
       brandButton.style.setProperty('--brand-rgb-offset', '0px');
