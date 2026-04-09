@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" href="favicon.webp" />
     <style>
       body.campaign-page {
-        background-image: url('images/visuals/01/IN REN CAMPAIGN/0894.webp');
+        background-image: var(--campaign-bg);
         background-size: cover;
         background-position: center -80px;
         background-attachment: fixed;
@@ -160,7 +160,10 @@
       }
     </style>
   </head>
-  <body class="season-page campaign-page">
+  <body
+    class="season-page campaign-page"
+    style="--campaign-bg: url('images/visuals/01/IN REN CAMPAIGN/0894.webp');"
+  >
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -252,6 +255,7 @@
       <p>Shenzhen</p>
     </footer>
 
+    <script src="asset-base.js"></script>
     <script src="script.js"></script>
     <script>
       // 动态调整图片高度
